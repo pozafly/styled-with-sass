@@ -6,6 +6,7 @@ $blue: #339af0;
 $indigo: #5c7cfa;
 $violet: #7950f2;
 
+// 믹스인 만들기(재사용되는 스타일 블록을 함수처럼 사용할 수 있음.)
 @mixin square($size) {
   $claculated: 32px * $size;
   width: $claculated;
@@ -14,8 +15,10 @@ $violet: #7950f2;
 
 .SassComponent {
   display: flex;
-  .box {
+  .box {  // 일반 CSS에서는 .SassComponent .box 와 같다.
     background: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
     &.red {
       background: $red;
       @include square(1);
@@ -23,6 +26,30 @@ $violet: #7950f2;
     &.orange {
       background: $orange;
       @include square(2);
+    }
+    &.yellow {
+      background: $yellow;
+      @include square(3);
+    }
+    &.green {
+      background: $green;
+      @include square(4);
+    }
+    &.blue {
+      background: $blue;
+      @include square(5);
+    }
+    &.indigo {
+      background: $indigo;
+      @include square(6);
+    }
+    &.violet {
+      background: $violet;
+      @include square(7);
+    }
+    &:hover {
+      // .box 에 마우스를 올렸을 때
+      background: black;
     }
   }
 }
